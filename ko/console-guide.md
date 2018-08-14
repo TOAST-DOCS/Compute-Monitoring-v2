@@ -1,7 +1,7 @@
 ## Compute > Monitoring v2 > 콘솔 사용 가이드
 
 
-## 단일 인스턴스에 대한 상태 조회하기
+## 인스턴스 관리 페이지에서 단일 인스턴스에 대한 상태 조회하기
 
 Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선택` > Monitoring'에서는 해당 인스턴스의 모니터링 그래프를 조회할 수 있습니다.
 
@@ -14,6 +14,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 | 그래프 | 설명  | 
 |--------|-------|
 |Cpu 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | a = ???<br> b = ??? |
+|Cpu 사용률    <br><img src="http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg">    | a = ???<br> b = ??? |
 |Cpu 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | a = ???<br> b = ??? |
 |Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | a = ???<br> b = ??? |
 |Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | a = ???<br> b = ??? |
@@ -23,6 +24,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 
 ## 복수 인스턴스에 대한 상태 조회하기
+Server Details 탭의 각 그래프에서는 선택된 인스턴스에 대한 지표를 동시에 보여줍니다.
 
 ## 알림 이력 조회하기
 
