@@ -12,9 +12,8 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 제공되는 그래프는 다음과 같습니다.
 
 | 그래프 | 설명  | 
-|--------|-------|
+|:--------|-------|
 |Cpu 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | a = ???<br> b = ??? |
-|Cpu 사용률    <br><img src="http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg">    | a = ???<br> b = ??? |
 |Cpu 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | a = ???<br> b = ??? |
 |Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | a = ???<br> b = ??? |
 |Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | a = ???<br> b = ??? |
