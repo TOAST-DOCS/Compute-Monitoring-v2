@@ -13,7 +13,13 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 | 그래프 | 이미지 | 설명  | 
 |--------|--------|-------|
-|Cpu 사용률 | ![](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg) | a = ???<br> b = ??? |
+|Cpu 사용률     | ![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | a = ???<br> b = ??? |
+|Cpu 부하       | ![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | a = ???<br> b = ??? |
+|Memory 사용률  | ![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | a = ???<br> b = ??? |
+|Disk 사용률    | ![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | a = ???<br> b = ??? |
+|Disk 전송률    | ![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | a = ???<br> b = ??? |
+|Network 전송률 | ![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | a = ???<br> b = ??? |
+
 
 
 ## 복수 인스턴스에 대한 상태 조회하기
