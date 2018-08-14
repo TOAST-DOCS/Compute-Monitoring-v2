@@ -13,12 +13,13 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 | 그래프 | 설명  | 
 |:--------|-------|
-|Cpu 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | a = ???<br> b = ??? |
-|Cpu 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | a = ???<br> b = ??? |
-|Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | a = ???<br> b = ??? |
-|Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | a = ???<br> b = ??? |
-|Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | a = ???<br> b = ??? |
-|Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | a = ???<br> b = ??? |
+|CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | softirq: 소프트웨어 인터럽트 처리에 소요된 CPU 사용률<br>irq: 하드웨어 인터럽트 처리에 소요된 CPU 사용률
+<br>sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률<br>iowait: 디스크 I/O 요청으로 인한 대기 상태에 소요된 CPU 사용률<br>steal: 가상(인스턴스) CPU가 물리 CPU 할당을 위한 대기 상태에 소요된 CPU 사용률<br>%nice: nice 명령을 통해 우선 순위가 변경된 프로세스 처리에 소요된 CPU 사용률 |
+|CPU 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | load1: 지난 1분 동안 CPU 사용을 위해 대기한 평균 프로세스 개수<br>load5: 지난 5분 동안 CPU 사용을 위해 대기한 평균 프로세스 개수<br>load15: 지난 15분 동안 CPU 사용을 위해 대기한 평균 프로세스 개수 |
+|Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률 |
+|Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | io: Disk 장치 사용률<br> used: Disk 저장 공간 사용률<br>참고: io 및 used는 디스크 파티션 별로 제공됨 |
+|Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>참고1: read 및 write는 디스크 파티션 별로 제공됨<br>참고2: 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
+|Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | in: 네트워크 읽기 전송률<br>out: 네트워크 쓰기 전송률<br>참고1: in 및 out은 네트워크 장치 별로 제공됨<br>참고2: 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 
 
 
