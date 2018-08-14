@@ -21,13 +21,20 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 |Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>[참고1] read 및 write는 파일 시스템(혹은 디스크 파티션) 별로 제공됨<br>[참고2] 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 |Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | In: 네트워크 읽기 전송률<br>Out: 네트워크 쓰기 전송률<br>[참고1] In 및 Out은 네트워크 장치 별로 제공됨<br>[참고2] 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 
-여기서 제공되는 모든 그래프는 '-5분 ~ 조회 시점'에 속하는 데이터를 보여주며, 그래프 자동 갱신 기능은 제공하지 않습니다.
-대신 수동 리프레쉬 버튼을 이용해서, 그래프의 데이터를 현 시점 기준으로 갱신시킬 수 있습니다.
+여기서 제공되는 모든 그래프는 '조회 시점을 기준으로 지난 5분 간의 데이터'를 제공하며, 자동 갱신 기능은 제공되지 않습니다.
+대신 수동 리프레쉬 버튼을 이용해서, 그래프 데이터를 갱신시킬 수 있습니다.
 
 
 
 ## 복수 인스턴스에 대한 상태 조회하기
-Server Details 탭의 각 그래프에서는 선택된 인스턴스에 대한 지표를 동시에 보여줍니다.
+아래의 그림과 같은 Server Details 탭의 각 그래프에서는 선택된 인스턴스에 대한 지표를 동시에 보여줍니다.
+![server details image<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_007.jpg)
+
+### 인스턴스 목록
+에이전트 구동 이력이 있는 인스턴스의 목록이 제공됩니다.
+(에이전트 구동 이력이 있으나 현재 에이전트가 실행중이지 않은 인스턴스, 혹은 종료 상태의 인스턴스도 포함됩니다.) 
+
+* 
 
 ## 알림 이력 조회하기
 
