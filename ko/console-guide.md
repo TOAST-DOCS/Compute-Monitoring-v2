@@ -13,7 +13,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 | 그래프 | 이미지 | 설명  | 
 |--------|--------|-------|
-|Cpu 사용률 | ![](이미지 링크) | a = ???<br>
+|Cpu 사용률 | ![](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg) | a = ???<br>
 b = ??? |
 
 
