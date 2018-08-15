@@ -14,8 +14,8 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 | 그래프 | 설명  | 
 |:--------|-------|
-|CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | softirq: 소프트웨어 인터럽트 처리에 소요된 CPU 사용률<br>irq: 하드웨어 인터럽트 처리에 소요된 CPU 사용률<br>sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률<br>iowait: 디스크 I/O 요청으로 인한 대기 상태에 소요된 CPU 사용률<br>steal: 가상(인스턴스) CPU가 물리 CPU 할당을 위한 대기 상태에 소요된 CPU 사용률<br>%nice: nice 명령을 통해 우선 순위가 변경된 프로세스 처리에 소요된 CPU 사용률 |
-|CPU 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | load1: 지난 1분 동안 CPU 사용을 위해 대기한 평균 프로세스 개수<br>load5: 지난 5분 동안 CPU 사용을 위해 대기한 평균 프로세스 개수<br>load15: 지난 15분 동안 CPU 사용을 위해 대기한 평균 프로세스 개수<br> *[참고] windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.* |
+|CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | softirq: 소프트웨어 인터럽트 처리에 소요된 CPU 사용률<br>irq: 하드웨어 인터럽트 처리에 소요된 CPU 사용률<br>sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률<br>iowait: 디스크 I/O 요청으로 인한 대기 상태에 소요된 CPU 사용률<br>steal: 가상(인스턴스) CPU가 물리 CPU 할당을 위한 대기 상태에 소요된 CPU 사용률<br>nice: nice 명령을 통해 우선 순위가 변경된 프로세스 처리에 소요된 CPU 사용률 |
+|CPU 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | load1: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load5: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load15: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
 |Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률<br>*[참고] linux 인스턴스에서의 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주합니다.* |
 |Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | io: Disk 장치 사용률<br> used: Disk 저장 공간 사용률<br>[참고] io 및 used는 파일 시스템(혹은 디스크 파티션) 별로 제공됨 |
 |Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>[참고1] read 및 write는 파일 시스템(혹은 디스크 파티션) 별로 제공됨<br>[참고2] 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
@@ -27,14 +27,26 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 
 ## 복수 인스턴스에 대한 상태 조회하기
-아래의 그림과 같은 Server Details 탭의 각 그래프에서는 선택된 인스턴스에 대한 지표를 동시에 보여줍니다.
+Server Details 탭(아래 그림)의 각 그래프에서는 선택한 인스턴스에 대한 지표를 동시에 보여줍니다.
 ![server details image<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_007.jpg)
 
-### 인스턴스 목록
+### 인스턴스 목록 (화살표 1 영역)
 에이전트 구동 이력이 있는 인스턴스의 목록이 제공됩니다.
-(에이전트 구동 이력이 있으나 현재 에이전트가 실행중이지 않은 인스턴스, 혹은 종료 상태의 인스턴스도 포함됩니다.) 
+> [참고]
+> 에이전트 구동 이력이 있으나 현재 에이전트가 종료된 인스턴스, 혹은 종료 상태의 인스턴스도 해당 목록에 포함됩니다. 
+> 이와 같은 상태의 인스턴스는 목록의 상태 필드 값이 'inActive'로 표시됩니다.
 
-* 
+원하는 인스턴스를 목록에서 선택하면, 그래프에 자동으로 반영됩니다.
+복수의 인스턴스를 선택하는 경우, 각 그래프 별로 해당 인스턴스들에 대한 정보가 모두 표시됩니다.
+
+인스턴스 목록을 통해서도 각 인스턴스에 대한 기본 정보 및 리소스 사용률(조회 시점 기준)을 확인할 수 있습니다.
+또한 모든 필드에 대한 검색 기능을 통해, 원하는 대상만을 쉽게 골라서 볼 수 있습니다.
+
+### 그래프 (화살표 2 영역)
+
+### 조회 기간 지정 (화살표 3 영역)
+
+### 그래프 갱신 주기 설정 (화살표 4 영역)
 
 ## 알림 이력 조회하기
 
