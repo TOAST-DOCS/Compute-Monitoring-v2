@@ -10,19 +10,21 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 > 에이전트 설치 후 'Monitoring 탭'에서 그래프가 노출되면, 그 시점부터 Monitoring v2의 기능을 활용할 수 있게 됩니다.
 
 
-제공되는 그래프는 다음과 같습니다.
+`여기에 모니터링 탭 포함된 이미지 추가(수동 리프레쉬 버튼 적용 후)`
+
+각 그래프에 대한 설명은 다음과 같습니다.
 
 | 그래프 | 설명  | 
 |:--------|-------|
-|CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | softirq: 소프트웨어 인터럽트 처리에 소요된 CPU 사용률<br>irq: 하드웨어 인터럽트 처리에 소요된 CPU 사용률<br>sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률<br>iowait: 디스크 I/O 요청으로 인한 대기 상태에 소요된 CPU 사용률<br>steal: 가상(인스턴스) CPU가 물리 CPU 할당을 위한 대기 상태에 소요된 CPU 사용률<br>nice: nice 명령을 통해 우선 순위가 변경된 프로세스 처리에 소요된 CPU 사용률 |
-|CPU 부하      <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | load1: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load5: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load15: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
+|CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률 |
+|CPU 부하 평균 <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | load1: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load5: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load15: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.<br>(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
 |Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률<br>*[참고] linux 인스턴스에서의 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주합니다.* |
 |Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | io: Disk 장치 사용률<br> used: Disk 저장 공간 사용률<br>[참고] io 및 used는 파일 시스템(혹은 디스크 파티션) 별로 제공됨 |
 |Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>[참고1] read 및 write는 파일 시스템(혹은 디스크 파티션) 별로 제공됨<br>[참고2] 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 |Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | In: 네트워크 읽기 전송률<br>Out: 네트워크 쓰기 전송률<br>[참고1] In 및 Out은 네트워크 장치 별로 제공됨<br>[참고2] 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 
 여기서 제공되는 모든 그래프는 '조회 시점을 기준으로 지난 5분 간의 데이터'를 제공하며, 자동 갱신 기능은 제공되지 않습니다.
-대신 수동 리프레쉬 버튼을 이용해서, 그래프 데이터를 갱신시킬 수 있습니다.
+대신 리프레쉬 버튼을 이용해서, 최신 데이터 기반의 그래프를 조회할 수 있습니다. (수동 갱신 기능 제공)
 
 
 
@@ -43,7 +45,8 @@ Server Details 탭(아래 그림)의 각 그래프에서는 선택한 인스턴�
 또한 모든 필드에 대한 검색 기능을 통해, 원하는 대상만을 쉽게 골라서 볼 수 있습니다.
 
 ### 그래프 (화살표 2 영역)
-
+제공되는 그래프 종류는 인스턴스의 모니터링 탭을 통해 제공되는 것과 동일합니다.
+단, 
 ### 조회 기간 지정 (화살표 3 영역)
 
 ### 그래프 갱신 주기 설정 (화살표 4 영역)
