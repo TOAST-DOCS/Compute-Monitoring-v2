@@ -17,8 +17,8 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 | 그래프 | 설명  | 
 |:--------|-------|
 |CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률 |
-|CPU 부하 평균 <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | load1: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load5: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>load15: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.<br>(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
-|Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률<br>*[참고] linux 인스턴스에서의 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주합니다.* |
+|CPU 부하 평균 <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | 1m: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>5m: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>15m: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.<br>(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
+|Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률<br>*[참고] linux 인스턴스는 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주하여 사용량에 포함시키지 않습니다.* |
 |Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | io: Disk 장치 사용률<br> used: Disk 저장 공간 사용률<br>[참고] io 및 used는 파일 시스템(혹은 디스크 파티션) 별로 제공됨 |
 |Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>[참고1] read 및 write는 파일 시스템(혹은 디스크 파티션) 별로 제공됨<br>[참고2] 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 |Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | In: 네트워크 읽기 전송률<br>Out: 네트워크 쓰기 전송률<br>[참고1] In 및 Out은 네트워크 장치 별로 제공됨<br>[참고2] 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
@@ -45,15 +45,35 @@ Server Details 탭(아래 그림)의 각 그래프에서는 선택한 인스턴�
 또한 모든 필드에 대한 검색 기능을 통해, 원하는 대상만을 쉽게 골라서 볼 수 있습니다.
 
 ### 그래프 (화살표 2 영역)
-제공되는 그래프 종류는 인스턴스의 모니터링 탭을 통해 제공되는 것과 동일합니다.
+각 그래프에서는 선택된 모든 인스턴스에 대한 지표를 동시에 제공합니다.
+임의의 그래프 위에 마우스 커서를 올려 놓았을 때, 커서가 가리키는 시점(x축)의 지표값이 표시됩니다.
+또한 이와 같은 동작은 모든 그래프에 동일하게 적용(shared-tooltip 기능)되어, 전체 그래프 조회에 대한 가독성 향상에 도움을 줍니다.
+
 >[참고]
 >다음의 두 그래프에서 보여지는 지표는 모니터링 탭과는 일부 다르게 제공됩니다.<br>
->CPU Usage: 각 인스턴스에 대한 지표는 '100 - idle'과 같이 계산된 CPU 사용률을 의미함
->Memory Usage: 각 인스턴스에 대한 지표는 Memory 사용률을 의미함
+>CPU Usage 그래프: 각 인스턴스에 대한 지표는 '100 - idle'과 같이 계산된 CPU 사용률을 의미함
+>Memory Usage 그래프: 각 인스턴스에 대한 지표는 Memory 사용률을 의미함
+
+>[주의]
+>선택된 인스턴스의 개수가 많은 경우, 그래프의 가독성이 떨어질 수 있습니다.
 
 ### 조회 기간 지정 (화살표 3 영역)
+그래프 조회 기간 설정 기능을 통해 원하는 시점의 인스턴스 상태를 확인할 수 있습니다.
+> [참고]
+> 그래프 조회 가능 기간은 최대 ??? 개월입니다.
+
+| 설정 항목  | 의미  |
+| ---------- | ----- |
+| 1 hour | 현재를 기준으로 지난 한시간 동안의 데이터 조회 |
+| 24 hour | 현재를 기준으로 지난 하루(24시간) 동안의 데이터 조회 |
+| 1 week | 현재를 기준으로 지난 일주일 동안의 데이터 조회 |
+| 1 month | 현재를 기준으로 지난 한달 종안의 데이터 조회 |
+| Custom | 사용자가 직접 조회 시점을 지정(시작 시점 및 종료 시점) |
 
 ### 그래프 갱신 주기 설정 (화살표 4 영역)
+모든 그래프에 대해서 자동 갱신 기능을 제공합니다.
+'off'로 설정된 경우에는 그래프 자동 갱신을 수행하지 않습니다.
+'off'가 아닌 경우에는 해당 값으로 표시되는 시간을 주기로 그래프가 자동 갱신됩니다.
 
 ## 알림 이력 조회하기
 
