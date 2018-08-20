@@ -19,7 +19,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 |CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률 |
 |CPU 부하 평균 <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | 1m: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>5m: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>15m: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.<br>(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
 |Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률<br>*[참고] linux 인스턴스는 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주하여 사용량에 포함시키지 않습니다.* |
-|Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | io: Disk 장치 사용률<br> used: Disk 저장 공간 사용률<br>[참고] io 및 used는 파일 시스템(혹은 디스크 파티션) 별로 제공됨 |
+|Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | io: Disk 장치 사용률<br> used: Disk 공간 사용률<br>[참고] io 및 used는 파일 시스템(혹은 디스크 파티션) 별로 제공됨 |
 |Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>[참고1] read 및 write는 파일 시스템(혹은 디스크 파티션) 별로 제공됨<br>[참고2] 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 |Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | In: 네트워크 읽기 전송률<br>Out: 네트워크 쓰기 전송률<br>[참고1] In 및 Out은 네트워크 장치 별로 제공됨<br>[참고2] 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 
@@ -76,11 +76,47 @@ Server Details 탭(아래 그림)의 각 그래프에서는 선택한 인스턴�
 'off'로 설정된 경우에는 그래프 자동 갱신을 수행하지 않습니다.
 'off'가 아닌 경우에는 해당 값으로 표시되는 시간을 주기로 그래프가 자동 갱신됩니다.
 
+## 알람 정책 설정하기
+알람 정책은 인스턴스 상태 감시를 위한 지표 설정 기능을 제공하며, 이를 바탕으로 사용자는 인스턴스 상태에 따른 알람을 받을 수 있습니다.
+>[참고]
+>알람 정책 기반의 알람을 받기 위해서는 별도의 알람 수신자 및 수신 방법 설정이 필요합니다.
+
+알람 정책을 통해 설정 가능한 항목은 다음과 같습니다.
+| 설정 항목 | 의미 | 설명 |
+|-----------|------|------|
+| 재부팅 | 인스턴스 재부팅에 대한 감시 | 인스턴스 재부팅이 완료된 시점에 알람 발생<br>[참고] 연속적인 재부팅이 발생하는 경우, 선행 이벤트와 후속 이벤트 간의 시간차가 10분 이상인 경우에만 후속 이벤트에 대한 알람이 발송됨 |
+| No Data | 에이전트의 데이터 미전송 상태에 대한 감시 | 데이터 미전송 상태 최초 감지 후, Duration으로 설정된 시간 동안 계속해서 해당 상태가 지속되는 경우 알람 발송 |
+| CPU | CPU 사용률에 대한 감시 | 총 CPU 사용률에 대해 두단계(warn, fatal)로 임계값 설정<br>설정된 임계값에 도달 후, Duration으로 지정된 시간 동안 해당 상태가 지속될 때 알람 발송 |
+| 메모리 | Memory 사용률에 대한 감시 | Memory 사용률에 대해 두단계(warn, fatal)로 임계값 설정<br>설정된 임계값에 도달 후, Duration으로 지정된 시간동안 해당 상태가 지속될 때 알람 발송 |
+| Disk Quota | Disk 공간 사용률에 대한 감시 | Disk 공간 사용률에 대해 두단계(warn, fatal)로 임계값 설정<br>설정된 임계값에 도달 후, Duration으로 지정된 시간동안 해당 상태가 지속될 때 알람 발송<br>복수의 Disk가 존재하는 경우 각각에 대해 개별적으로 적용됨 |
+| Network  | Network 전송률(bps)에 대한 감시 | Network 전송률에 대해 두단계(warn, fatal)로 임계값 설정<br>설정된 임계값에 도달 후, Duration으로 지정된 시간동안 해당 상태가 지속될 때 알람 발송<br>복수의 Network Device가 존재하는 경우 각각에 대해 개별적으로 적용됨<br>[참고] 여기서 설정되는 임계값은 network rx + tx(전체 송수신률의 합)를 의미함. |
+| 인스턴스 | 해당 정책을 적용할 인스턴스 설정 | 선택된 인스턴스에 대해서 해당 정책 기반의 감시 기능을 사용함 |
+
+
+>[참고] 알람 발송 횟수에 대하여
+> 재부팅 감시 설정을 제외한 모든 지표에 대해서 특정 이벤트에 대한 최초 알람 발송 후, 최대 3회의 추가 알람이 발송될 수 있습니다.
+> 10분 경과 알람 발송: 최초 알람 발송 후, 해당 상태가 10분 이상 지속되는 경우 
+> 한시간 경과 알람 발송: 최초 알람 발송 후, 해당 상태가 한시간(60분) 이상 지속되는 경우 
+> 하루 경과 알람 발송: 최초 알람 발송 후, 해당 상태가 하루(1440분) 이상 지속되는 경우 
+
+알람 정책은
+>[주의]
+>기본적으로 Default 정책이 제공되며, 에이전트 구동 직후의 모든 인스턴스에 대해 이 정책이 적용됩니다.
+
+Default 정책 외에 사용자 정의 정책 생성이 가능하며, 원하는 인스턴스 별로 필요한 정책을 적용할 수 있습니다.
+모든 인스턴스는 하나의 정책만 적용 가능하며, 복수의 정책을 적용하는 것은 불가능합니다.
+단, 어떤 정책도 적용하지 않는 것은 가능하며, 이런 경우 해당 인스턴스에 대해서는 알람 기능의 사용이 불가능합니다.
+
+
+
+'Default' 적책 이것은 수정은 가능하지만 삭제가 불가능합니다.
+
+모든 인스턴스는 에이전트 구동 후(즉, 모니터링 시스템 등록 후)
+알람 정책을 통해 설정 가능한 항목은 다음과 같습니다.
+## 알람 수신 설정하기
+
 ## 알람 이력 조회하기
 
-## 알람 정책 설정하기
-
-## 알람 수신 설정하기
 
 ## 모니터링 에이전트에 대한 참고 사항
 인스턴스에서 구동 중인 에이전트 프로세스를 임의로 중단하는 경우, Monitoring v2의 기능을 제대로 사용할 수 없게 됩니다.
