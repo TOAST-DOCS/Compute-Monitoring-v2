@@ -10,7 +10,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 > 에이전트 설치 후 'Monitoring 탭'에서 그래프가 노출되면, 그 시점부터 Monitoring v2의 기능을 활용할 수 있게 됩니다.
 
 
-`여기에 모니터링 탭 포함된 이미지 추가할 것!(수동 리프레쉬 버튼 적용 후)`
+![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg) 
 
 각 그래프에 대한 설명은 다음과 같습니다.
 
@@ -24,7 +24,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 |Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | `이미지 수정 필요(그래프 이름 수정된 것으로)`<br>In: 네트워크 읽기 전송률<br>Out: 네트워크 쓰기 전송률<br>[참고1] In 및 Out은 네트워크 장치 별로 제공됨<br>[참고2] 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
 
 여기서 제공되는 모든 그래프는 '조회 시점을 기준으로 지난 5분 간의 데이터'를 제공하며, 자동 갱신 기능은 제공되지 않습니다.
-대신 그래프 영역 왼쪽 상단의 리프레쉬 버튼을 이용하면 최신 데이터를 조회할 수 있습니다. (수동 갱신 기능 제공)
+대신 그래프 영역 왼쪽 상단의 `새로 고침` 버튼을 이용하면 최신 데이터를 조회할 수 있습니다. (수동 갱신 기능 제공)
 
 
 
