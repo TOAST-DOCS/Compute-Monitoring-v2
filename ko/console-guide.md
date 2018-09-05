@@ -12,16 +12,16 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 ![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg) 
 
-각 그래프에 대한 설명은 다음과 같습니다.
+상기 이미지에서의 각 그래프에 대한 설명은 다음과 같습니다.
 
-| 그래프 | 설명  | 
-|:--------|-------|
-|CPU 사용률    <br>![cpu usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_001.jpg)    | `이미지 수정 필요(total 포함된 것으로)`<br>total: 총 CPU 사용률<br>sys: 커널 모드 작업에 소요된 CPU 사용률<br>usr: 유저 모드 작업에 소요된 CPU 사용률 |
-|CPU 부하 평균 <br>![cpu load image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)     | `이미지 수정 필요(legend 수정된 것으로)`<br>1m: 지난 1분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>5m: 지난 5분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br>15m: 지난 15분 동안 CPU를 사용(대기 상태 포함)한 프로세스 개수의 평균<br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.<br>(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
-|Memory 사용률 <br>![memory usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg) | pused: 메모리 사용률<br>swappused: 스왑 사용률<br>*[참고] linux 인스턴스는 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주하여 사용량에 포함시키지 않습니다.* |
-|Disk 사용률   <br>![disk usage image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)   | `이미지 수정 필요(그래프 이름 수정된 것으로)`<br>io: Disk 장치 사용률<br> used: Disk 공간 사용률<br>[참고] io 및 used는 파일 시스템(혹은 디스크 파티션) 별로 제공됨 |
-|Disk 전송률   <br>![disk i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_005.jpg)     | `이미지 수정 필요(그래프 이름 수정된 것으로)`<br>read: 디스크 읽기 전송률<br>write: 디스크 쓰기 전송률<br>[참고1] read 및 write는 파일 시스템(혹은 디스크 파티션) 별로 제공됨<br>[참고2] 기본 단위는 Bps(Bytes per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
-|Network 전송률<br>![network i/o image <](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)  | `이미지 수정 필요(그래프 이름 수정된 것으로)`<br>In: 네트워크 읽기 전송률<br>Out: 네트워크 쓰기 전송률<br>[참고1] In 및 Out은 네트워크 장치 별로 제공됨<br>[참고2] 기본 단위는 bps(Bits per Sec)이며, 크기에 따라 y축 단위가 변환됨 |
+| 그래프        |  설명          | 
+|:--------------|----------------|
+|CPU 사용률     | total: 총 CPU 사용률(%)<br>sys: 커널 모드 작업에 소요된 CPU 사용률(%)<br>usr: 유저 모드 작업에 소요된 CPU 사용률(%) |
+|CPU 평균 부하  | 1m: 지난 1분 동안 CPU를 사용한 프로세스 개수(대기 상태 포함)의 평균<br>5m: 지난 5분 동안 CPU를 사용한 프로세스 개수(대기 상태 포함)의 평균<br>15m: 지난 15분 동안 CPU를 사용한 프로세스 개수(대기 상태 포함)의 평균<br><br> *[참고] 본 지표는 linux 운영체제 전용 지표입니다.<br>(windows 인스턴스에서는 그래프는 노출되지만 데이터는 제공되지 않습니다.)* |
+|Memory 사용률  | pused: 메모리 사용률(%)<br>swappused: 스왑 사용률(%)<br><br>*[참고] linux 인스턴스의 메모리 사용률 계산 시 buffer 및 cache 영역은 사용 가능한 영역으로 간주하여 사용량에 포함시키지 않습니다.* |
+|Disk 사용률    | io: Disk 장치 사용률(%)<br> used: Disk 공간 사용률(%)<br><br>*[참고] io 및 used는 파일 시스템(windows의 경우 디스크 드라이브) 별로 제공됩니다.* |
+|Disk 전송률    | read: 디스크 읽기 전송률(Bps)<br>write: 디스크 쓰기 전송률(Bps)<br><br>*[참고1] read 및 write는 파일 시스템(windows의 경우 디스크 드라이브) 별로 제공됩니다.*<br>*[참고2] y축 기본 단위는 Bps(Bytes per Sec)이며, 값의 크기에 따라 단위가 변환됩니다.* |
+|Network 전송률 | In: 네트워크 읽기 전송률(Bps)<br>Out: 네트워크 쓰기 전송률(Bps)<br><br>*[참고1] In 및 Out은 네트워크 장치 별로 제공됩니다.*<br>*[참고2] y축 기본 단위는 Bps(Bytes per Sec)이며, 값의 크기에 따라 y축 단위가 변환됩니다.* |
 
 여기서 제공되는 모든 그래프는 '조회 시점을 기준으로 지난 5분 간의 데이터'를 제공하며, 자동 갱신 기능은 제공되지 않습니다.
 대신 그래프 영역 왼쪽 상단의 `새로 고침` 버튼을 이용하면 최신 데이터를 조회할 수 있습니다. (수동 갱신 기능 제공)
