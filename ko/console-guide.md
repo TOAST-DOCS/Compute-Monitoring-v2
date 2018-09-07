@@ -81,16 +81,16 @@ Server Details 탭(아래 그림)의 각 그래프에서는 선택한 인스턴�
 
 ## 알람 정책 설정하기
 Alarm Setting 탭에서는 알람 정책 목록 조회 및 알람 정책 생성/수정/삭제 기능을 제공합니다.
-알람 정책은 인스턴스 상태 감시를 위한 각종 설정 내역을 담고 있으며, 이를 기준으로 사용자는 인스턴스 상태에 따른 알람을 받을 수 있습니다.
 
 ![alarm policy<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_003.jpg)
 
+알람 정책은 인스턴스 상태 감시를 위한 각종 설정 내역을 담고 있으며, 이를 기준으로 사용자는 인스턴스 상태에 따른 알람을 받을 수 있습니다.
 >[주의]
 >알람을 받기 위해서는 별도의 [알람 수신자 및 수신 방법 설정](./console-guide/#_4)이 필요합니다.
 
+알람 정책을 통해 감시 가능한 항목은 다음과 같습니다.
 ![alarm configuration<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)
 
-알람 정책을 통해 감시 가능한 항목은 다음과 같습니다.
 >[참고] 아래 표에서의 '설정 항목' 필드에 대한 설명<br>
 > 사용 여부: 해당 항목에 대한 사용 여부를 설정(on/off)<br>
 > 임계값: 해당 항목에 대해 알람을 받길 원하는 상태의 최소값. warn 및 fatal의 두단계로 설정 가능<br>
