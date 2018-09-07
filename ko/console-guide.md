@@ -30,7 +30,7 @@ Toast 콘솔의 'Compute > Instance > 관리 > `조회 대상 인스턴스 선�
 
 ## 복수 인스턴스에 대한 상태 조회하기
 Server Details 탭(아래 그림)의 각 그래프에서는 선택한 인스턴스에 대한 지표를 동시에 보여줍니다.
-![server details image<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_007.jpg)
+![server details image<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_002.jpg)
 
 ### 1.인스턴스 목록 (화살표 1 영역)
 에이전트 구동 이력이 있는 인스턴스의 목록이 제공됩니다.
@@ -133,6 +133,8 @@ Users 탭에서는 알람 수신자 및 수신 방법에 대한 설정 기능을
 ## 알람 이력 조회하기
 Alarm Logs 탭에서는 알람 이력 조회 기능을 제공합니다.
 각 알람 이력은 알람 상황 발생으로 인한 최초 알람 발송 시 생성됩니다.
+
+![alarm logs image<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_006.jpg)
 
 알람 이력은 다음과 같은 항목으로 구성되어 있습니다.
 
