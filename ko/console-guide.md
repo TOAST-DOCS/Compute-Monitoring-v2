@@ -95,6 +95,7 @@ Monitoring v2 서비스에서는 기본적으로 `Default 정책`을 제공하�
 
 >[주의]
 >모든 인스턴스는 오직 하나의 알람 정책에만 포함될 수 있습니다.
+>알람 정책을 삭제하는 경우, 해당 정책의 적용을 받던 모든 인스턴스들은 어떠한 알람 정책에도 속하지 않는 상태가 됩니다.
 
 알람 정책을 통해 감시 가능한 항목은 다음과 같습니다.
 ![alarm configuration<](http://static.toastoven.net/prod_infrastructure/monitoring/v2/image_004.jpg)
