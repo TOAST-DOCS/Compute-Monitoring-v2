@@ -20,7 +20,7 @@ Each graph is described as below:
 |:--------------|----------------|
 |CPU Usage     | Total: Total CPU usage rate  (%)<br>sys: CPU usage required for the kernel mode (%)<br>usr: CPU usage required for the user mode (%) |
 |Average CPU Load  | 1m: The average number of processes (including waiting status) using CPU for the last 1 minute <br>5m: The average number of processes (including waiting status) using CPU for the last 5 minutes <br>15m: The average number of processes (including waiting status) using CPU for the last 15 minutes <br><br> *[Note] This indicator is applied only for Linux instances. <br>(For Windows instances, graph shows but no data is provided.)* |
-|Memory Usage  | Pused: Memory usage (%)<br>Swappused: Swap usage (%)<br><br>*[Note] In calculating Linux instance memory usage, buffer and cache areas are considered available, and not included to usage.* |
+|Memory Usage  | Used: Memory usage (%)<br>Swapused: Swap usage (%)<br><br>*[Note] In calculating Linux instance memory usage, buffer and cache areas are considered available, and not included to usage.* |
 |Disk Usage    | IO: Disk device usage  (%)<br>Used: Disk space usage (%)<br><br>*[Note] IO and Used are provided for each mounted file system (disk drive for Windows) .* |
 |Disk Transfer Rate    | Read: Transfer rate for read disk  (Bps)<br>Write: Transfer rate for write disk (Bps)<br><br>*[Note] Read and Write are provided for each mounted file system (disk drive for Windows).*<br>*[Note] Axis y is divided by Bps(Bytes per Sec), and the unit may change depending on the size of a value.* |
 |Network Transfer Rate | In: Transfer rate for read network (Bps)<br>Out: Transfer rate for write network (Bps)<br><br>*[Note] In and Out are provided for each network device.*<br>*[Note] Axis y is divided by Bps(Bytes per Sec), and the unit may change depending on the size of a value.* |
@@ -53,7 +53,7 @@ Like the **Monitoring** tab, 6 graphs are provided; but here, each graph provide
 >[Note]
 >The following two graphs provide only a part of indicators, unlike the **Monitoring** tab. <br>
 >Graph on CPU Usage: Shows only the total usage of each instance
->Graph on Memory Usage: Shows only the memory usage (pused) of each instance 
+>Graph on Memory Usage: Shows only the memory usage (used) of each instance 
 
 Put the cursor on a graph and it points at an indicator value on its direction (axis x). 
 And another graph without cursor also shows the indicator of the same direction (enabled by shared-tooltip). 
