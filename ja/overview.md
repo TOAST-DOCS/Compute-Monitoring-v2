@@ -1,3 +1,4 @@
+
 ﻿## Compute > Monitoring V2 > 概要
 
 Monitoring V2では、ユーザーが作成したインスタンスに対し、向上したモニタリング機能を無料で提供します。
